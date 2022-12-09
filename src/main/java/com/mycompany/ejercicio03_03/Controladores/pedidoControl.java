@@ -5,6 +5,7 @@
 package com.mycompany.ejercicio03_03.Controladores;
 
 import com.mycompany.ejercicio03_03.Modelo.Pedido;
+import com.mycompany.ejercicio03_03.Modelo.Producto;
 import com.mycompany.ejercicio03_03.Servicio.PedidoServiceImpl;
 
 /**
@@ -15,7 +16,7 @@ public class pedidoControl {
 
     private PedidoServiceImpl pedidoServiceImpl = new PedidoServiceImpl();
 
-    public void crearPedido(String[] dataPedido) {
+    public void crearPedido(String[] dataPedido, Producto producto) {
 
         var retorno = ("No se pudo crear el Pedido");
 
@@ -30,6 +31,10 @@ public class pedidoControl {
         var tipoDeMercaderia = dataPedido[3];
 
         var observaciones = dataPedido[4];
+        
+        var nombreProducto = producto; 
+        
+        
 
         if (validaCodigo(codigo) == false) {
 
@@ -59,12 +64,15 @@ public class pedidoControl {
 
         }
        
-        if (valida==true) {
+        /*if (valida==true) {
                 
-            var pedido = new Pedido (codigo, nombreComprador, totalSinIva, tipoDeMercaderia, observaciones);
-            retorno += "\n Mercaderia no encontrada";
-            valida = false;
+            var pedido = new Pedido (codigo, nombreComprador, totalSinIva, tipoDeMercaderia, observaciones, nombreProducto);
+            this.productoServiceImpl.crearProducto (producto);
+            
         }
+        */
+        
+       
         
     }
 
